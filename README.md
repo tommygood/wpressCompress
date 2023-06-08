@@ -1,6 +1,6 @@
 <h1>Background</h1>
 
-As the wordpress plugin - all-in-one migration have a functionality which is it will auto backup the wordpress site to .wpress in a time interval(ex. 2 weeks), but
+As the wordpress plugin - all-in-one migration have a functionality that it will auto backup the wordpress site to .wpress in a time interval(ex. 2 weeks), but
 the .wpress file is too large.
 
 <h1>Introduce</h1>
