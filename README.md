@@ -11,5 +11,6 @@ compress the wordpress backup file(.wpress) to tar file when using the all-in-on
 
 - use crontab to auto execute in a time interval depend on your time interval of backup the wordpress
   - `crontab -e`
+  
      `0 0 * * 0 python3 /path/to/wpressCompress/passWpress.py`
       - this will execute the script each week
