@@ -3,7 +3,7 @@ from subprocess import call, PIPE, run
 import datetime
 import os
 # Define the directory to list directories from
-directory = "/var/www/youngfuture/ai1wm-backups"
+directory = "/wordpress/wp-content/ai1wm-backups"
 
 # Get a list of all items (files and directories) in the directory
 items = os.listdir(directory)
