@@ -5,7 +5,11 @@ the .wpress file is too large.
 
 <h1>Introduce</h1>
 
-compress the wordpress backup file(.wpress) to tar file, and remove the origin .wpress when successfully compress.
+compress all the `.wpress` files(wordpress backup files) in the path of backups file(default is in `/wordpress/wp-content/ai1wm-backups`) to tar file, and remove the origin `.wpress` when successfully compress.
+
+<h1>Configuration</h1>
+
+change the `directory` to your wordpress path in `passWpress.py`
 
 <h1>Usage</h1>
 
