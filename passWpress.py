@@ -2,23 +2,27 @@ import subprocess
 from subprocess import call, PIPE, run
 import datetime
 import os
-# Define the directory to list directories from
+# the directory wordpress store backups
 directory = "/wordpress/wp-content/ai1wm-backups"
 
 # Get a list of all items (files and directories) in the directory
 items = os.listdir(directory)
+
+# record the monitor result in log
+log_path = './monitor.log'
 
 # all not compressed wordpress backup files
 all_wpress = []
 
 def main() :
     getAllWpress()
-    compressFile()
+    result = str(compressFile())
+    logResult(result)
 
 # get all not compressed wordpress backup files in specify directory
 def getAllWpress() :
     for each_item in items :
-        split_with_dot = each_item.split('.') 
+        split_with_dot = each_item.split('.')
         # check whether is the wordpress backup format
         if split_with_dot[len(split_with_dot)-1] == "wpress" :
             all_wpress.append(each_item)
@@ -38,10 +42,11 @@ def compressFile() :
         else :
             print("compress failed")
             print(result)
+    return result
 
 # get file name without sub file name, i define it as real file name
 def getRealFileName(file_name) :
-    split_with_dot = file_name.split('.') 
+    split_with_dot = file_name.split('.')
     print(split_with_dot)
     real_file_name = ""
     for i in range(len(split_with_dot)-1) :
@@ -53,5 +58,12 @@ def getRealFileName(file_name) :
             real_file_name += split_with_dot[i] + "."
     return real_file_name
 
-main()
+def logResult(result) :
+    # record the odd directory
+    text_file = open(log_path, "w")
+    # write into log
+    text_file.write(str(datetime.datetime.now()) + " " + result + "\n")
 
+    text_file.close()
+
+main()
