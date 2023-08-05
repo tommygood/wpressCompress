@@ -31,7 +31,7 @@ def getAllWpress() :
 def compressFile() :
     for each_wpress in all_wpress :
         file_path = directory + "/" + each_wpress
-        tar_path = directory + "/" + getRealFileName(each_wpress) + ".tar"
+        tar_path = directory + "/" + getRealFileName(each_wpress) + ".tar.gz"
         # compress file to tar file
         result = run(["tar", "zcvf", tar_path, "--absolute-names", file_path], stdout=PIPE, stderr=PIPE, universal_newlines=True)
         result= str(result)
