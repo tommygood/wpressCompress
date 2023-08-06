@@ -33,7 +33,7 @@ def compressFile() :
         file_path = directory + "/" + each_wpress
         tar_path = directory + "/" + getRealFileName(each_wpress) + ".tar.gz"
         # compress file to tar file
-        result = run(["tar", "zcvf", tar_path, "--absolute-names", file_path], stdout=PIPE, stderr=PIPE, universal_newlines=True)
+        result = run(["tar", "zcvf", tar_path, "-C", file_path, "."], stdout=PIPE, stderr=PIPE, universal_newlines=True)
         result= str(result)
         # remove .wpress file when it be compressed successfully
         if "CompletedProcess" in result and "stderr=''" in result :
